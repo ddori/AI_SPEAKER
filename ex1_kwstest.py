@@ -1,8 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-"""Example 1: GiGA Genie Keyword Spotting"""
-
 from __future__ import print_function
 
 import pyaudio
@@ -115,7 +112,7 @@ def play_file(fname):
 # KWS
 
 import ktkws
-KWSID = ['기가지니', '지니야', '친구야', '자기야']
+KWSID = ['기가지니', '지니야', '친구야', '자기야','정훈아']
 
 def detect():
     
@@ -125,7 +122,7 @@ def detect():
         for content in audio_generator:
 
             rc = ktkws.detect(content)
-            rms = audioop.rms(content,2)
+             rms = audioop.rms(content,2)
             print('audio rms = %d' % (rms))
 
             if (rc == 1):
@@ -137,7 +134,7 @@ def test():
     print ('init rc = %d' % (rc))
     rc = ktkws.start()
     print ('start rc = %d' % (rc))
-    ktkws.set_keyword(KWSID.index('기가지니'))
+    ktkws.set_keyword(KWSID.index('정훈아'))
     rc = detect()
     print ('detect rc = %d' % (rc))
     ktkws.stop()
